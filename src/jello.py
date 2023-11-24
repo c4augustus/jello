@@ -22,7 +22,9 @@ def clear_screen():
 
 def run_jelly(expr: str, args: list[str]):
     try:
-        command = ["jelly", "eun", expr, *args]
+        # TODO: ### local hack to use local repo clone [c4augustus]
+        #command = ["jelly", "eun", expr, *args]
+        command = ["python", "../jellyfish/jelly", "eun", expr, *args]
         result = subprocess.run(command, text=True, capture_output=True, check=True)
         output_text = result.stdout.strip()
 
